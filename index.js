@@ -1,5 +1,3 @@
-'use strict'
-
 /**
  * Iterates over an object's keys, applying a transform function to each value.
  * @param  {Object}   obj       - the initial object
