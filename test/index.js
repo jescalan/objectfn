@@ -1,5 +1,3 @@
-'use strict'
-
 const test = require('ava')
 const {map, reduce, filter, forEach} = require('..')
 const obj = { foo: 'bar', doge: 'wow' }
