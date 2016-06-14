@@ -38,6 +38,24 @@ forEach(obj, console.log.bind(console))
 // logs out all the values
 ```
 
+Each callback has a method signature of `(value, key, object)` with the exception of `reduce`, which has `(accumulator, value, key, object)`.
+
+**Note:** Unlike the native array equivalent as well as other library implementations, we felt it would be better to explicitly require the passing of an accumulator to the `reduce` method.
+
+This means that this will work:
+
+```js
+let obj = { one: 1, two: 2, three: 3, four: 4 }
+reduce(obj, (accum, val) => accum + val, 0) // => 10
+```
+
+But this will not:
+
+```js
+let obj = { one: 1, two: 2, three: 3, four: 4 }
+reduce(obj, (prevVal, currVal) => prevVal + currVal) // => wat?
+```
+
 ### License & Contributing
 
 - Details on the license [can be found here](LICENSE.md)
