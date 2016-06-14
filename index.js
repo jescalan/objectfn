@@ -1,38 +1,38 @@
-function * entries (obj) {
-  for (let key of Object.keys(obj)) {
-    yield [obj[key], key]
-  }
-}
+'use strict'
 
-function map (obj, cb) {
+exports.map = function map (obj, transform) {
   let res = {}
   for (let [val, key] of entries(obj)) {
-    res[key] = cb(val, key, obj)
+    res[key] = transform(val, key, obj)
   }
   return res
 }
 
-function filter (obj, cb) {
+exports.filter = function filter (obj, predicate) {
   let res = {}
   for (let [val, key] of entries(obj)) {
-    if (cb(val, key, obj)) {
+    if (predicate(val, key, obj)) {
       res[key] = val
     }
   }
   return res
 }
 
-function forEach (obj, cb) {
+exports.forEach = function forEach (obj, iterate) {
   for (let [val, key] of entries(obj)) {
-    cb(val, key, obj)
+    iterate(val, key, obj)
   }
 }
 
-function reduce (obj, cb, init) {
+exports.reduce = function reduce (obj, reducer, accumulator) {
   for (let [val, key] of entries(obj)) {
-    init = cb(init, val, key, obj)
+    accumulator = reducer(accumulator, val, key, obj)
   }
-  return init
+  return accumulator
 }
 
-module.exports = {map, reduce, filter, forEach}
+function * entries (obj) {
+  for (let key of Object.keys(obj)) {
+    yield [obj[key], key]
+  }
+}

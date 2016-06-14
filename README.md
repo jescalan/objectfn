@@ -24,13 +24,17 @@ Very straightforward usage. Just import what you need and use it on an object.
 const {map, reduce, filter, forEach} = require('objectfn')
 
 const obj = { foo: 'bar', wow: 'doge' }
-map(obj, (v, k) => v.toUpperCase())
+
+map(obj, (val, key) => val.toUpperCase())
 // { foo: 'BAR', wow: 'DOGE' }
-reduce(obj, (m, v, k) => m[v.toUpperCase()] = k && m }, {})
+
+reduce(obj, (accum, val, key) => accum[val.toUpperCase()] = key && accum }, {})
 // { FOO: 'bar', WOW: 'doge' }
-filter(obj, (v, k) => !k === 'foo')
+
+filter(obj, (val, key) => !key === 'foo')
 // { wow: 'doge' }
-forEach(obj, console.log)
+
+forEach(obj, console.log.bind(console))
 // logs out all the values
 ```
 
