@@ -38,7 +38,7 @@ forEach(obj, console.log.bind(console))
 // logs out all the values
 ```
 
-Each callback has a method signature of `(value, key, object)` with the exception of `reduce`, which has `(accumulator, value, key, object)`.
+Each callback has a method signature of `(value, key, index, object)` with the exception of `reduce`, which has `(accumulator, value, key, index, object)`. `value` is the current key's value, `key` is the current key's name, `index` is the 0-based index of the current key and `object` is the original object.
 
 **Note:** Unlike the native array equivalent as well as other library implementations, we felt it would be better to explicitly require the passing of an accumulator to the `reduce` method.
 
