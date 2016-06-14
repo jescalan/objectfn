@@ -1,0 +1,40 @@
+{
+  "name": "objectfn",
+  "description": "map, reduce, and filter for objects, lazy evaluation and no dependencies",
+  "version": "0.0.0",
+  "author": "jescalan",
+  "ava": {
+    "verbose": "true"
+  },
+  "bugs": "https://github.com/jescalan/objectfn/issues",
+  "contributors": [
+    "Declan DeWet"
+  ],
+  "devDependencies": {
+    "ava": "0.15.x",
+    "coveralls": "2.x",
+    "nyc": "6.x",
+    "standard": "7.x"
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "homepage": "https://github.com/jescalan/objectfn",
+  "keywords": [
+    "filter",
+    "functional",
+    "map",
+    "object",
+    "reduce",
+    "utility"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "jescalan/objectfn",
+  "scripts": {
+    "coverage": "nyc ava",
+    "coveralls": "nyc --reporter=lcov ava && cat ./coverage/lcov.info | coveralls",
+    "lint": "standard",
+    "test": "ava"
+  }
+}
