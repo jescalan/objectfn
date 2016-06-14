@@ -8,7 +8,7 @@ Map, reduce, forEach, and filter for objects. Lazy evaluation, no dependencies.
 
 I wanted a library that has no dependencies and gives me the basic map/reduce/filter for use on objects. Any existing library I found has boatloads of dependencies, provides tons more extra tools, and/or is unmaintained. So here's `ObjectFn`, just for you!
 
-Also, big props to [@declandewet](https://github.com/jescalan) for the initial implementation of this library!
+Also, big props to [@declandewet](https://github.com/declandewet) for the initial implementation of this library!
 
 ### Installation
 
