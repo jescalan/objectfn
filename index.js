@@ -5,21 +5,21 @@ function * entries (obj) {
 }
 
 function map (obj, cb) {
-  let newObj = {}
+  let res = {}
   for (let [val, key] of entries(obj)) {
-    newObj[key] = cb(val, key, obj)
+    res[key] = cb(val, key, obj)
   }
-  return newObj
+  return res
 }
 
 function filter (obj, cb) {
-  let newObj = {}
+  let res = {}
   for (let [val, key] of entries(obj)) {
     if (cb(val, key, obj)) {
-      newObj[key] = val
+      res[key] = val
     }
   }
-  return newObj
+  return res
 }
 
 function forEach (obj, cb) {
@@ -29,14 +29,8 @@ function forEach (obj, cb) {
 }
 
 function reduce (obj, cb, init) {
-  let first = arguments.length > 2
   for (let [val, key] of entries(obj)) {
-    if (!first) {
-      init = val
-      first = true
-    } else {
-      init = cb(init, val, key, obj)
-    }
+    init = cb(init, val, key, obj)
   }
   return init
 }
