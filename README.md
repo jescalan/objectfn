@@ -35,21 +35,18 @@ const {map, reduce, filter, forEach} = require('objectfn')
 
 const obj = { foo: 'bar', wow: 'doge' }
 
-const upcasedValues = map(obj, (val) => val.toUpperCase())
-console.log(upcasedValues)
+map(obj, (val) => val.toUpperCase())
 // { foo: 'BAR', wow: 'DOGE' }
 
-const upcasedKeys = reduce(obj, (acc, val, key) => acc[val.toUpperCase()] = key && acc }, {})
-console.log(upcasedKeys)
+reduce(obj, (acc, val, key) => (acc[key.toUpperCase()] = val, acc), {})
 // { FOO: 'bar', WOW: 'doge' }
 
-const withoutFoo = filter(obj, (val, key) => key !== 'foo')
-console.log(withoutFoo)
+filter(obj, (val, key) => key !== 'foo')
 // { wow: 'doge' }
 
 forEach(obj, console.log.bind(console))
-// bar
-// doge
+// bar foo 0 { foo: 'bar', wow: 'doge' }
+// doge wow 1 { foo: 'bar', wow: 'doge' }
 ```
 
 #### Functional style
@@ -62,21 +59,21 @@ const {map, reduce, filter, forEach} = require('objectfn')
 const obj = { foo: 'bar', wow: 'doge' }
 
 const upcaseValues = map((val) => val.toUpperCase())
-console.log(upcaseValues(obj))
+upcaseValues(obj)
 // { foo: 'BAR', wow: 'DOGE' }
 
-const upcaseKeys = reduce((acc, val, key) => acc[val.toUpperCase()] = key && acc }, {})
-console.log(upcaseKeys(obj))
+const upcaseKeys = reduce((acc, val, key) => (acc[key.toUpperCase()] = key, acc), {})
+upcaseKeys(obj)
 // { FOO: 'bar', WOW: 'doge' }
 
 const ignoreFoo = filter((val, key) => key !== 'foo')
-console.log(ignoreFoo(obj))
+ignoreFoo(obj)
 // { wow: 'doge' }
 
 const logValues = forEach(console.log.bind(console))
 logValues(obj)
-// bar
-// doge
+// bar foo 0 { foo: 'bar', wow: 'doge' }
+// doge wow 1 { foo: 'bar', wow: 'doge' }
 ```
 
 ### Method Signature
