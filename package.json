@@ -1,7 +1,7 @@
 {
   "name": "objectfn",
   "description": "map, reduce, and filter for objects, lazy evaluation and no dependencies",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "jescalan",
   "ava": {
     "verbose": "true"
